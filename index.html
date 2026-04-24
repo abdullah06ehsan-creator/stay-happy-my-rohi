@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Someone Special ✨</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+      overflow: hidden;
+      position: relative;
+    }
+    .container {
+      text-align: center;
+      background: rgba(255,255,255,0.9);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 500px;
+      z-index: 2;
+      animation: fadeIn 1.2s ease;
+    }
+    h1 { font-size: 2.2rem; margin-bottom: 15px; }
+    p { font-size: 1.1rem; margin-bottom: 25px; color: #444; }
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: #ff7aa2;
+      color: white;
+      transition: 0.3s;
+    }
+    button:hover { transform: scale(1.05); }
+    .letter {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff7fb;
+      border-radius: 15px;
+      animation: slideUp 0.8s ease;
+      color: #333;
+      line-height: 1.6;
+    }
+    .heart {
+      position: absolute;
+      top: -20px;
+      color: rgba(255, 105, 180, 0.6);
+      animation: fall linear infinite;
+      font-size: 20px;
+    }
+    @keyframes fall {
+      from { transform: translateY(-10vh); }
+      to { transform: translateY(110vh); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>For You 💖</h1>
+    <p>I made this little surprise just to make you smile today ✨</p>
+    <button onclick="showLetter()">Open Surprise</button>
+    <div class="letter" id="letter">
+      You are one of the most special people in my life. 💕<br><br>
+      I just wanted to remind you how amazing, beautiful, and precious you are.
+      Keep smiling because your smile makes everything brighter. ✨
+    </div>
+  </div>
+
+  <script>
+    function showLetter() {
+      document.getElementById('letter').style.display = 'block';
+    }
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
